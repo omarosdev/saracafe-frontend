@@ -103,14 +103,6 @@ const AdminLogin = () => {
               {loading ? t.loading || 'جاري التحميل...' : t.loginButton}
             </button>
           </form>
-
-          {/* Demo Credentials */}
-          <div className="mt-6 pt-6 border-t border-natural-wood/20">
-            <p className="text-xs text-warm-gray/60 text-center" style={{ fontFamily: "'Alexandria', sans-serif" }}>
-              بيانات الدخول الافتراضية:<br />
-              <span className="font-medium">admin / Admin@123</span>
-            </p>
-          </div>
         </div>
       </div>
     </div>

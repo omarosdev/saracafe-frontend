@@ -18,6 +18,8 @@ const ProductsManagement = () => {
     descriptionAr: '',
     descriptionEn: '',
     categoryId: '',
+    price: '',
+    calories: '',
     isActive: true,
   });
   const t = adminTranslations.ar.products;
@@ -57,6 +59,8 @@ const ProductsManagement = () => {
       descriptionAr: '',
       descriptionEn: '',
       categoryId: '',
+      price: '',
+      calories: '',
       isActive: true,
     });
     setImageFile(null);
@@ -72,6 +76,8 @@ const ProductsManagement = () => {
       descriptionAr: product.descriptionAr || '',
       descriptionEn: product.descriptionEn || '',
       categoryId: product.categoryId || '',
+      price: product.price !== undefined && product.price !== null ? product.price : '',
+      calories: product.calories || '',
       isActive: product.isActive !== undefined ? product.isActive : true,
     });
     setImageFile(null);
@@ -125,6 +131,8 @@ const ProductsManagement = () => {
         descriptionAr: '',
         descriptionEn: '',
         categoryId: '',
+        price: '',
+        calories: '',
         isActive: true,
       });
       setImageFile(null);
@@ -229,7 +237,7 @@ const ProductsManagement = () => {
                     )}
                   </div>
                 </div>
-                <div className="flex items-center justify-between mb-4 text-sm">
+                <div className="flex items-center justify-between mb-2 text-sm">
                   <span className="px-3 py-1 bg-olive-green/10 text-olive-green rounded-lg" style={{ fontFamily: "'Zain', sans-serif" }}>
                     {product.categoryNameAr || product.categoryNameEn}
                   </span>
@@ -239,6 +247,20 @@ const ProductsManagement = () => {
                     {product.isActive ? 'نشط' : 'غير نشط'}
                   </span>
                 </div>
+                {(product.price !== undefined && product.price !== null) || product.calories ? (
+                  <div className="flex items-center gap-3 mb-4 text-sm">
+                    {product.price !== undefined && product.price !== null && (
+                      <span className="text-olive-green font-semibold" style={{ fontFamily: "'Zain', sans-serif" }}>
+                        {product.price} ﷼
+                      </span>
+                    )}
+                    {product.calories && (
+                      <span className="text-warm-gray/70" style={{ fontFamily: "'Alexandria', sans-serif" }}>
+                        {product.calories}
+                      </span>
+                    )}
+                  </div>
+                ) : null}
                 <div className="flex items-center space-x-2 space-x-reverse pt-4 border-t border-natural-wood/20">
                   <button
                     onClick={() => handleEdit(product)}
@@ -362,6 +384,36 @@ const ProductsManagement = () => {
                     <option value={true}>نشط</option>
                     <option value={false}>غير نشط</option>
                   </select>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-warm-gray mb-2" style={{ fontFamily: "'Zain', sans-serif" }}>
+                    {t.price}
+                  </label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    value={formData.price}
+                    onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                    className="w-full px-4 py-3 border border-natural-wood/30 rounded-xl focus:ring-2 focus:ring-olive-green/50 focus:border-olive-green transition-all outline-none"
+                    style={{ fontFamily: "'Alexandria', sans-serif" }}
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-warm-gray mb-2" style={{ fontFamily: "'Zain', sans-serif" }}>
+                    {t.calories}
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.calories}
+                    onChange={(e) => setFormData({ ...formData, calories: e.target.value })}
+                    className="w-full px-4 py-3 border border-natural-wood/30 rounded-xl focus:ring-2 focus:ring-olive-green/50 focus:border-olive-green transition-all outline-none"
+                    style={{ fontFamily: "'Alexandria', sans-serif" }}
+                    placeholder="مثال: 250 سعرة"
+                  />
                 </div>
               </div>
               <div>

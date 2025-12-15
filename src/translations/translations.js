@@ -6,11 +6,11 @@ export const translations = {
       contact: 'اتصل بنا',
     },
     hero: {
-      tagline: 'مصنوع بحب',
+      tagline: 'تجربة قهوة استثنائية',
       title: 'مرحباً بكم في',
       cafeName: 'مقهى سارة',
-      description: 'حيث تلتقي الدفء بالتميز اليدوي. كل فنجان يحكي قصة من الأصالة والفرح والحرفية الصادقة.',
-      cta: 'استكشف قائمتنا',
+      description: 'مكان يجمع بين الأصالة والأناقة. نقدم لكم قهوة مختصة مختارة بعناية، ومشروبات منعشة، وحلويات فاخرة مصنوعة يومياً. كل كوب هنا يحمل قصة من الشغف والجودة.',
+      cta: 'اكتشف قائمتنا',
     },
     categories: {
       title: 'قائمتنا',
@@ -129,10 +129,10 @@ export const translations = {
       contact: 'Contact',
     },
     hero: {
-      tagline: 'Handcrafted with Love',
+      tagline: 'An Exceptional Coffee Experience',
       title: 'Welcome to',
       cafeName: 'Sara Café',
-      description: 'Where warmth meets handcrafted excellence. Every cup tells a story of authenticity, joy, and honest craftsmanship.',
+      description: 'Where authenticity meets elegance. We serve specialty coffee carefully selected, refreshing beverages, and artisanal pastries made fresh daily. Every cup here tells a story of passion and quality.',
       cta: 'Explore Our Menu',
     },
     categories: {

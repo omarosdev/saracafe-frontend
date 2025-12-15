@@ -168,6 +168,12 @@ export const productsAPI = {
     if (productData.descriptionEn) {
       formData.append('descriptionEn', productData.descriptionEn);
     }
+    if (productData.price !== undefined && productData.price !== null && productData.price !== '') {
+      formData.append('price', productData.price);
+    }
+    if (productData.calories) {
+      formData.append('calories', productData.calories);
+    }
     if (imageFile) {
       formData.append('imageFile', imageFile);
     }
@@ -190,6 +196,12 @@ export const productsAPI = {
     }
     if (productData.descriptionEn) {
       formData.append('descriptionEn', productData.descriptionEn);
+    }
+    if (productData.price !== undefined && productData.price !== null && productData.price !== '') {
+      formData.append('price', productData.price);
+    }
+    if (productData.calories) {
+      formData.append('calories', productData.calories);
     }
     if (imageFile) {
       formData.append('imageFile', imageFile);
