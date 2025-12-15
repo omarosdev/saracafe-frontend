@@ -2,6 +2,7 @@ import { useState } from 'react';
 import contactImage from '../assets/contact.jpg';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations/translations';
+import { contactsAPI } from '../services/api';
 
 const Contact = () => {
   const { language } = useLanguage();
@@ -27,12 +28,18 @@ const Contact = () => {
     setIsSubmitting(true);
     setStatus({ type: null, message: '' });
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await contactsAPI.create(formData);
       setStatus({ type: 'success', message: t.contact.form.success });
       setFormData({ name: '', email: '', phone: '', message: '' });
-    }, 1500);
+    } catch (error) {
+      setStatus({ 
+        type: 'error', 
+        message: t.contact.form.error
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

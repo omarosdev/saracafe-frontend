@@ -4,35 +4,36 @@ import { translations } from '../translations/translations';
 const ProductCard = ({ product }) => {
   const { language } = useLanguage();
   const t = translations[language];
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5064';
 
-  // Map category keys to translated names
-  const categoryMap = {
-    'All': t.categories.all,
-    'Coffee': t.categories.coffee,
-    'Drinks': t.categories.drinks,
-    'Breakfast': t.categories.breakfast,
-    'Desserts': t.categories.desserts,
-  };
+  // Get product name and description based on language
+  const productName = language === 'ar' ? product.nameAr : product.nameEn;
+  const productDescription = language === 'ar' ? product.descriptionAr : product.descriptionEn;
+  const categoryName = language === 'ar' ? product.categoryNameAr : product.categoryNameEn;
 
-  const getCategoryDisplayName = (category) => {
-    return categoryMap[category] || category;
-  };
+  // Build image URL
+  const imageUrl = product.imageUrl 
+    ? `${API_BASE_URL}${product.imageUrl}` 
+    : null;
 
   return (
     <div className="group relative bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover-lift border border-natural-wood/10">
       {/* Product Image */}
       <div className="relative h-72 overflow-hidden bg-gradient-to-br from-sand-beige via-sand-beige/80 to-natural-wood/15">
-        {product.image ? (
+        {imageUrl ? (
           <img
-            src={product.image}
-            alt={product.name}
+            src={imageUrl}
+            alt={productName}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.nextSibling.style.display = 'flex';
+            }}
           />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center elegant-gradient">
-            <div className="text-7xl opacity-15 group-hover:opacity-20 transition-opacity duration-500">☕</div>
-          </div>
-        )}
+        ) : null}
+        <div className={`w-full h-full flex items-center justify-center elegant-gradient ${imageUrl ? 'hidden' : ''}`}>
+          <div className="text-7xl opacity-15 group-hover:opacity-20 transition-opacity duration-500">☕</div>
+        </div>
         
         {/* Elegant Overlay on Hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-olive-green/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -46,11 +47,13 @@ const ProductCard = ({ product }) => {
         </div>
         
         {/* Category Badge */}
-        <div className={`absolute top-6 ${language === 'ar' ? 'right-6' : 'left-6'}`}>
-          <span className="px-3 py-1.5 bg-white/90 backdrop-blur-sm text-olive-green text-xs font-medium rounded-full border border-olive-green/10">
-            {getCategoryDisplayName(product.category)}
-          </span>
-        </div>
+        {categoryName && (
+          <div className={`absolute top-6 ${language === 'ar' ? 'right-6' : 'left-6'}`}>
+            <span className="px-3 py-1.5 bg-white/90 backdrop-blur-sm text-olive-green text-xs font-medium rounded-full border border-olive-green/10">
+              {categoryName}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Product Info */}
@@ -64,35 +67,13 @@ const ProductCard = ({ product }) => {
             fontWeight: language === 'ar' ? 600 : 400
           }}
         >
-          {product.name}
+          {productName}
         </h3>
-        <p className="text-warm-gray/80 text-sm mb-6 leading-relaxed font-light min-h-[3rem]">
-          {product.description}
-        </p>
-        
-        <div className={`flex items-center justify-between pt-5 border-t border-natural-wood/15 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-          <div className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-warm-gray/60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            <span className="text-sm text-warm-gray/70 font-light">
-              {product.calories} {t.products.calories}
-            </span>
-          </div>
-          <div className="flex items-baseline gap-1">
-            <span 
-              className="text-2xl font-medium text-olive-green"
-              style={{ 
-                fontFamily: language === 'ar' 
-                  ? "'Zain', sans-serif" 
-                  : "'Playfair Display', serif",
-                fontWeight: language === 'ar' ? 600 : 400
-              }}
-            >
-              {language === 'ar' ? `${product.price.toFixed(2)} ﷼` : `SAR ${product.price.toFixed(2)}`}
-            </span>
-          </div>
-        </div>
+        {productDescription && (
+          <p className="text-warm-gray/80 text-sm mb-6 leading-relaxed font-light min-h-[3rem]">
+            {productDescription}
+          </p>
+        )}
       </div>
 
       {/* Organic Illustration Accent */}
@@ -117,4 +98,3 @@ const ProductCard = ({ product }) => {
 };
 
 export default ProductCard;
-

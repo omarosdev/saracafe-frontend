@@ -5,17 +5,42 @@ const Categories = ({ categories, activeCategory, onCategoryChange }) => {
   const { language } = useLanguage();
   const t = translations[language];
   
-  const categoryMap = {
-    'All': t.categories.all,
-    'Coffee': t.categories.coffee,
-    'Drinks': t.categories.drinks,
-    'Breakfast': t.categories.breakfast,
-    'Desserts': t.categories.desserts,
-  };
-  
-  // Map category names for display
   const getCategoryDisplayName = (category) => {
-    return categoryMap[category] || category;
+    // Handle "All" option
+    if (category === 'All' || category === 'all') {
+      return t.categories.all;
+    }
+    
+    // Handle category objects from API
+    if (typeof category === 'object' && category !== null) {
+      return language === 'ar' ? category.nameAr : category.nameEn;
+    }
+    
+    // Fallback for string categories
+    return category;
+  };
+
+  const getCategoryKey = (category) => {
+    if (category === 'All' || category === 'all') {
+      return 'All';
+    }
+    if (typeof category === 'object' && category !== null) {
+      return category.id;
+    }
+    return category;
+  };
+
+  const isActive = (category) => {
+    if (activeCategory === 'All' && (category === 'All' || category === 'all')) {
+      return true;
+    }
+    if (typeof category === 'object' && typeof activeCategory === 'object') {
+      return category.id === activeCategory.id;
+    }
+    if (typeof category === 'object') {
+      return category.id === activeCategory;
+    }
+    return category === activeCategory;
   };
 
   return (
@@ -37,31 +62,37 @@ const Categories = ({ categories, activeCategory, onCategoryChange }) => {
         </div>
         
         <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-          {categories.map((category, index) => (
-            <button
-              key={category}
-              onClick={() => onCategoryChange(category)}
-              className={`group relative px-7 py-3.5 rounded-full font-medium transition-all duration-500 overflow-hidden ${
-                activeCategory === category
-                  ? 'bg-olive-green text-sand-beige shadow-lg shadow-olive-green/20 scale-105'
-                  : 'bg-white/80 backdrop-blur-sm text-warm-gray border border-natural-wood/20 hover:border-olive-green/40 hover:bg-white hover:shadow-md hover:scale-[1.02]'
-              }`}
-              style={{ 
-                animationDelay: `${index * 0.1}s`,
-                animationFillMode: 'both'
-              }}
-            >
-              <span className="relative z-10 tracking-wide">{getCategoryDisplayName(category)}</span>
-              
-              {/* Active state background animation */}
-              {activeCategory === category && (
-                <span className="absolute inset-0 bg-gradient-to-r from-olive-green via-olive-green/90 to-olive-green opacity-100"></span>
-              )}
-              
-              {/* Hover shine effect */}
-              <span className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent ${language === 'ar' ? 'translate-x-[100%] group-hover:translate-x-[-100%]' : 'translate-x-[-100%] group-hover:translate-x-[100%]'} transition-transform duration-1000`}></span>
-            </button>
-          ))}
+          {categories.map((category, index) => {
+            const displayName = getCategoryDisplayName(category);
+            const categoryKey = getCategoryKey(category);
+            const active = isActive(category);
+            
+            return (
+              <button
+                key={categoryKey}
+                onClick={() => onCategoryChange(category)}
+                className={`group relative px-7 py-3.5 rounded-full font-medium transition-all duration-500 overflow-hidden ${
+                  active
+                    ? 'bg-olive-green text-sand-beige shadow-lg shadow-olive-green/20 scale-105'
+                    : 'bg-white/80 backdrop-blur-sm text-warm-gray border border-natural-wood/20 hover:border-olive-green/40 hover:bg-white hover:shadow-md hover:scale-[1.02]'
+                }`}
+                style={{ 
+                  animationDelay: `${index * 0.1}s`,
+                  animationFillMode: 'both'
+                }}
+              >
+                <span className="relative z-10 tracking-wide">{displayName}</span>
+                
+                {/* Active state background animation */}
+                {active && (
+                  <span className="absolute inset-0 bg-gradient-to-r from-olive-green via-olive-green/90 to-olive-green opacity-100"></span>
+                )}
+                
+                {/* Hover shine effect */}
+                <span className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent ${language === 'ar' ? 'translate-x-[100%] group-hover:translate-x-[-100%]' : 'translate-x-[-100%] group-hover:translate-x-[100%]'} transition-transform duration-1000`}></span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -69,4 +100,3 @@ const Categories = ({ categories, activeCategory, onCategoryChange }) => {
 };
 
 export default Categories;
-
