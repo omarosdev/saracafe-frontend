@@ -537,14 +537,7 @@ const Contact = () => {
                           >
                             {t.contact.info.hours.weekdays}
                           </p>
-                          <p
-                            className="text-warm-gray/80 font-light text-sm"
-                            style={{
-                              fontFamily: "'Alexandria', sans-serif",
-                            }}
-                          >
-                            {t.contact.info.hours.weekend}
-                          </p>
+                       
                         </div>
                       </div>
                       <div className="flex-shrink-0 w-12 h-12 rounded-full bg-olive-green/10 flex items-center justify-center">

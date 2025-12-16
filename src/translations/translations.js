@@ -6,10 +6,10 @@ export const translations = {
       contact: 'اتصل بنا',
     },
     hero: {
-      tagline: 'تجربة قهوة استثنائية',
+      tagline: 'حيث تصنع الذكريات الجميلة',
       title: 'مرحباً بكم في',
       cafeName: 'مقهى سارة',
-      description: 'مكان يجمع بين الأصالة والأناقة. نقدم لكم قهوة مختصة مختارة بعناية، ومشروبات منعشة، وحلويات فاخرة مصنوعة يومياً. كل كوب هنا يحمل قصة من الشغف والجودة.',
+      description: 'قهوة مختصة وضيافة متكاملة صُممت لتعكس دفء المشاعر وأناقة التفاصيل، قكل فنجان نحضّره هو جزء من حكاية سارة.',
       cta: 'اكتشف قائمتنا',
     },
     categories: {
@@ -25,7 +25,7 @@ export const translations = {
       calories: 'سعرة',
     },
     footer: {
-      tagline: 'مصنوع بالدفء والصدق والفرح. كل لحظة هي احتفال بالأصالة.',
+      tagline: 'اكتشف طعم غني للقهوة.. واستمتع بلحظات مليئة بالدفء',
       copyright: 'مقهى سارة. جميع الحقوق محفوظة.',
     },
     contact: {
@@ -50,7 +50,7 @@ export const translations = {
         },
         phone: {
           label: 'الهاتف',
-          value: '+966 12 345 6789',
+          value: '+966 564620992',
         },
         email: {
           label: 'البريد الإلكتروني',
@@ -58,8 +58,8 @@ export const translations = {
         },
         hours: {
           label: 'ساعات العمل',
-          weekdays: 'السبت - الخميس: 7:00 ص - 11:00 م',
-          weekend: 'الجمعة: 2:00 م - 11:00 م',
+          weekdays: 'كل أيام الأسبوع: 7:00 ص - 11:00 م',
+
         },
       },
     },
@@ -129,10 +129,10 @@ export const translations = {
       contact: 'Contact',
     },
     hero: {
-      tagline: 'An Exceptional Coffee Experience',
+      tagline: 'Where beautiful memories are made',
       title: 'Welcome to',
       cafeName: 'Sara Café',
-      description: 'Where authenticity meets elegance. We serve specialty coffee carefully selected, refreshing beverages, and artisanal pastries made fresh daily. Every cup here tells a story of passion and quality.',
+      description: 'Specialty coffee and complete hospitality, thoughtfully designed to reflect warmth of emotions and elegance in every detail. Every cup we prepare is part of Sarah’s story.',
       cta: 'Explore Our Menu',
     },
     categories: {
@@ -148,7 +148,7 @@ export const translations = {
       calories: 'cal',
     },
     footer: {
-      tagline: 'Handcrafted with warmth, honesty, and joy. Every moment is a celebration of authenticity.',
+      tagline: 'Discover the rich taste of coffee… and enjoy moments filled with warmth.',
       copyright: '© Sara Café. All rights reserved.',
     },
     contact: {
@@ -173,7 +173,7 @@ export const translations = {
         },
         phone: {
           label: 'Phone',
-          value: '+966 12 345 6789',
+          value: '+966 564620992',
         },
         email: {
           label: 'Email',
@@ -181,8 +181,7 @@ export const translations = {
         },
         hours: {
           label: 'Opening Hours',
-          weekdays: 'Saturday - Thursday: 7:00 AM - 11:00 PM',
-          weekend: 'Friday: 2:00 PM - 11:00 PM',
+          weekdays: 'Every day: 7:00 AM - 11:00 PM',
         },
       },
     },
