@@ -2,6 +2,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import WhatsAppFloat from './components/WhatsAppFloat';
 import Home from './pages/Home';
 import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
@@ -61,6 +62,7 @@ function App() {
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
             <Footer />
+            <WhatsAppFloat />
           </div>
         }
       />
@@ -80,6 +82,7 @@ function App() {
               <Route path="*" element={<Navigate to="/en" replace />} />
             </Routes>
             <Footer />
+            <WhatsAppFloat />
           </div>
         }
       />

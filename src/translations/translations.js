@@ -10,7 +10,7 @@ export const translations = {
       tagline: 'مقهى محلي في جدة منذ 2014',
       title: 'مرحباً بكم في',
       cafeName: 'مقهى سارة',
-      description: 'حيث تلتقي القيم التقليدية بالحداثة. طعام حقيقي مخبوز يومياً، قهوة مختصة، وأجواء هادئة ومشرقة.',
+      description: 'حيث تلتقي القيم التقليدية بالحداثة. طعام طازج مخبوز يومياً، قهوة مختصة، وأجواء هادئة ومشرقة.',
       cta: 'اكتشف قائمتنا',
     },
     categories: {
@@ -151,7 +151,7 @@ export const translations = {
       tagline: 'A Local Cafe in Jeddah Since 2014',
       title: 'Welcome to',
       cafeName: 'Sara Café',
-      description: 'Where traditional values meet modernity. Real food baked daily, specialty coffee, and a calm, bright atmosphere.',
+      description: 'Where traditional values meet modernity. Fresh food baked daily, specialty coffee, and a calm, bright atmosphere.',
       cta: 'Explore Our Menu',
     },
     categories: {
