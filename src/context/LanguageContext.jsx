@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { getLanguageFromPath } from '../utils/routes';
 
 const LanguageContext = createContext();
 
@@ -11,10 +12,27 @@ export const useLanguage = () => {
 };
 
 export const LanguageProvider = ({ children }) => {
+  // Detect language from URL path on initial load
   const [language, setLanguage] = useState(() => {
-    // Default to Arabic
+    if (typeof window !== 'undefined') {
+      const urlLanguage = getLanguageFromPath(window.location.pathname);
+      return urlLanguage || localStorage.getItem('language') || 'ar';
+    }
     return localStorage.getItem('language') || 'ar';
   });
+
+  // Update language when URL changes (for browser back/forward)
+  useEffect(() => {
+    const handlePopState = () => {
+      const urlLanguage = getLanguageFromPath(window.location.pathname);
+      if (urlLanguage && urlLanguage !== language) {
+        setLanguage(urlLanguage);
+      }
+    };
+    
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [language]);
 
   useEffect(() => {
     // Update HTML attributes

@@ -376,6 +376,7 @@ const Contact = () => {
                           style={{
                             fontFamily: "'Alexandria', sans-serif",
                           }}
+                          dir="ltr"
                         >
                           {t.contact.info.phone.value}
                         </a>
@@ -428,6 +429,7 @@ const Contact = () => {
                           style={{
                             fontFamily: "'Montserrat', sans-serif",
                           }}
+                          dir="ltr"
                         >
                           {t.contact.info.phone.value}
                         </a>

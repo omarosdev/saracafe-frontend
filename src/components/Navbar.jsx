@@ -4,6 +4,7 @@ import saraLogo from '../assets/sara-logo.png';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations/translations';
 import LanguageSwitcher from './LanguageSwitcher';
+import { getLocalizedPath, getPathWithoutLanguage } from '../utils/routes';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,6 +12,9 @@ const Navbar = () => {
   const { language } = useLanguage();
   const location = useLocation();
   const t = translations[language];
+  
+  // Get current path without language prefix for comparison
+  const currentPath = getPathWithoutLanguage(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,21 +56,21 @@ const Navbar = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? 'bg-sand-beige/98 backdrop-blur-md shadow-md shadow-olive-green/5 border-b border-natural-wood/10'
-            : 'bg-transparent'
+            : 'bg-sand-beige/98 backdrop-blur-md'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" dir={language}>
           <div className={`flex items-center justify-between transition-all duration-500 ${
-            isScrolled ? 'h-20 md:h-24' : 'h-28 md:h-32'
+            isScrolled ? 'h-20 md:h-20' : 'h-28 md:h-28'
           }`}>
             {/* Logo - Left in EN, Right in AR */}
             <div className="flex-shrink-0 flex items-center group">
-              <Link to="/" className="relative flex items-center">
+              <Link to={getLocalizedPath('/', language)} className="relative flex items-center">
                 <img
                   src={saraLogo}
                   alt="Sara Café"
                   className={`w-auto transition-all duration-500 group-hover:scale-105 drop-shadow-sm ${
-                    isScrolled ? 'h-14 md:h-16' : 'h-20 md:h-24'
+                    isScrolled ? 'h-14 md:h-14' : 'h-20 md:h-20'
                   }`}
                   onError={(e) => {
                     e.target.style.display = 'none';
@@ -93,13 +97,13 @@ const Navbar = () => {
               {language === 'ar' ? (
                 <>
                   <Link
-                    to="/"
+                    to={getLocalizedPath('/', language)}
                     className={`relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group ${
-                      location.pathname === '/' ? 'text-olive-green' : ''
+                      currentPath === '/' ? 'text-olive-green' : ''
                     }`}
                   >
                     {t.nav.menu}
-                    <span className={`absolute bottom-0 right-0 h-px bg-olive-green transition-all duration-300 ${location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                    <span className={`absolute bottom-0 right-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                   </Link>
                   <a
                     href="#store"
@@ -109,26 +113,35 @@ const Navbar = () => {
                     <span className="absolute bottom-0 right-0 w-0 h-px bg-olive-green transition-all duration-300 group-hover:w-full"></span>
                   </a>
                   <Link
-                    to="/contact"
+                    to={getLocalizedPath('/about', language)}
                     className={`relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group ${
-                      location.pathname === '/contact' ? 'text-olive-green' : ''
+                      currentPath === '/about' ? 'text-olive-green' : ''
+                    }`}
+                  >
+                    {t.nav.about}
+                    <span className={`absolute bottom-0 right-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/contact', language)}
+                    className={`relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group ${
+                      currentPath === '/contact' ? 'text-olive-green' : ''
                     }`}
                   >
                     {t.nav.contact}
-                    <span className={`absolute bottom-0 right-0 h-px bg-olive-green transition-all duration-300 ${location.pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                    <span className={`absolute bottom-0 right-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                   </Link>
                   <LanguageSwitcher />
                 </>
               ) : (
                 <>
                   <Link
-                    to="/"
+                    to={getLocalizedPath('/', language)}
                     className={`relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group ${
-                      location.pathname === '/' ? 'text-olive-green' : ''
+                      currentPath === '/' ? 'text-olive-green' : ''
                     }`}
                   >
                     {t.nav.menu}
-                    <span className={`absolute bottom-0 left-0 h-px bg-olive-green transition-all duration-300 ${location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                    <span className={`absolute bottom-0 left-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                   </Link>
                   <a
                     href="#store"
@@ -138,13 +151,22 @@ const Navbar = () => {
                     <span className="absolute bottom-0 left-0 w-0 h-px bg-olive-green transition-all duration-300 group-hover:w-full"></span>
                   </a>
                   <Link
-                    to="/contact"
+                    to={getLocalizedPath('/about', language)}
                     className={`relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group ${
-                      location.pathname === '/contact' ? 'text-olive-green' : ''
+                      currentPath === '/about' ? 'text-olive-green' : ''
+                    }`}
+                  >
+                    {t.nav.about}
+                    <span className={`absolute bottom-0 left-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/contact', language)}
+                    className={`relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group ${
+                      currentPath === '/contact' ? 'text-olive-green' : ''
                     }`}
                   >
                     {t.nav.contact}
-                    <span className={`absolute bottom-0 left-0 h-px bg-olive-green transition-all duration-300 ${location.pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                    <span className={`absolute bottom-0 left-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                   </Link>
                   <LanguageSwitcher />
                 </>
@@ -200,7 +222,7 @@ const Navbar = () => {
             {/* Sidebar Header */}
             <div className="flex items-center justify-between p-6 border-b border-natural-wood/10">
               <Link
-                to="/"
+                to={getLocalizedPath('/', language)}
                 className="flex items-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -239,9 +261,9 @@ const Navbar = () => {
               {language === 'ar' ? (
                 <>
                   <Link
-                    to="/"
+                    to={getLocalizedPath('/', language)}
                     className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
-                      location.pathname === '/' 
+                      currentPath === '/' 
                         ? 'bg-olive-green/10 text-olive-green' 
                         : 'text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green'
                     }`}
@@ -263,9 +285,23 @@ const Navbar = () => {
                     <span className="font-medium text-base">{t.nav.store}</span>
                   </a>
                   <Link
-                    to="/contact"
+                    to={getLocalizedPath('/about', language)}
                     className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
-                      location.pathname === '/contact' 
+                      currentPath === '/about' 
+                        ? 'bg-olive-green/10 text-olive-green' 
+                        : 'text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="font-medium text-base">{t.nav.about}</span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/contact', language)}
+                    className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
+                      currentPath === '/contact' 
                         ? 'bg-olive-green/10 text-olive-green' 
                         : 'text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green'
                     }`}
@@ -280,9 +316,9 @@ const Navbar = () => {
               ) : (
                 <>
                   <Link
-                    to="/"
+                    to={getLocalizedPath('/', language)}
                     className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
-                      location.pathname === '/' 
+                      currentPath === '/' 
                         ? 'bg-olive-green/10 text-olive-green' 
                         : 'text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green'
                     }`}
@@ -304,9 +340,23 @@ const Navbar = () => {
                     <span className="font-medium text-base">{t.nav.store}</span>
                   </a>
                   <Link
-                    to="/contact"
+                    to={getLocalizedPath('/about', language)}
                     className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
-                      location.pathname === '/contact' 
+                      currentPath === '/about' 
+                        ? 'bg-olive-green/10 text-olive-green' 
+                        : 'text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="font-medium text-base">{t.nav.about}</span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/contact', language)}
+                    className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
+                      currentPath === '/contact' 
                         ? 'bg-olive-green/10 text-olive-green' 
                         : 'text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green'
                     }`}

@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import Categories from '../components/Categories';
 import ProductsGrid from '../components/ProductsGrid';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import { productsAPI, categoriesAPI } from '../services/api';
+import { translations } from '../translations/translations';
 
 const Home = () => {
   const { language } = useLanguage();
+  const t = translations[language];
   const [activeCategory, setActiveCategory] = useState('All');
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -78,6 +81,13 @@ const Home = () => {
 
   return (
     <>
+      <SEO
+        title={t.seo.home.title}
+        description={t.seo.home.description}
+        keywords={t.seo.home.keywords}
+        image="/sara-logo.png"
+        type="website"
+      />
       <Hero />
       <Categories
         categories={categories}

@@ -1,11 +1,23 @@
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { getLocalizedPath, getPathWithoutLanguage } from '../utils/routes';
 
 const LanguageSwitcher = () => {
-  const { language, toggleLanguage } = useLanguage();
+  const { language, setLanguage } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleToggle = () => {
+    const newLanguage = language === 'ar' ? 'en' : 'ar';
+    const currentPath = getPathWithoutLanguage(location.pathname);
+    const newPath = getLocalizedPath(currentPath, newLanguage);
+    setLanguage(newLanguage);
+    navigate(newPath);
+  };
 
   return (
     <button
-      onClick={toggleLanguage}
+      onClick={handleToggle}
       className="group relative flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-natural-wood/20 hover:border-olive-green/40 hover:bg-white transition-all duration-300 hover:shadow-md overflow-hidden"
       aria-label={language === 'ar' ? 'Switch to English' : 'التبديل إلى العربية'}
     >

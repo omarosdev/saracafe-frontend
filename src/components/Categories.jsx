@@ -61,7 +61,7 @@ const Categories = ({ categories, activeCategory, onCategoryChange }) => {
           <div className="w-20 h-px bg-gradient-to-r from-transparent via-natural-wood/40 to-transparent mx-auto"></div>
         </div>
         
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+        <div className="flex flex-col md:flex-row md:flex-wrap md:justify-center gap-3 md:gap-4">
           {categories.map((category, index) => {
             const displayName = getCategoryDisplayName(category);
             const categoryKey = getCategoryKey(category);
@@ -71,10 +71,10 @@ const Categories = ({ categories, activeCategory, onCategoryChange }) => {
               <button
                 key={categoryKey}
                 onClick={() => onCategoryChange(category)}
-                className={`group relative px-7 py-3.5 rounded-full font-medium transition-all duration-500 overflow-hidden ${
+                className={`group relative w-full md:w-auto px-7 py-3.5 rounded-full font-medium transition-all duration-500 overflow-hidden ${
                   active
-                    ? 'bg-olive-green text-sand-beige shadow-lg shadow-olive-green/20 scale-105'
-                    : 'bg-white/80 backdrop-blur-sm text-warm-gray border border-natural-wood/20 hover:border-olive-green/40 hover:bg-white hover:shadow-md hover:scale-[1.02]'
+                    ? 'bg-olive-green text-sand-beige shadow-lg shadow-olive-green/20 md:scale-105'
+                    : 'bg-white/80 backdrop-blur-sm text-warm-gray border border-natural-wood/20 hover:border-olive-green/40 hover:bg-white hover:shadow-md md:hover:scale-[1.02]'
                 }`}
                 style={{ 
                   animationDelay: `${index * 0.1}s`,

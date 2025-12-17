@@ -3,13 +3,14 @@ export const translations = {
     nav: {
       menu: 'القائمة',
       store: 'المتجر',
+      about: 'من نحن',
       contact: 'اتصل بنا',
     },
     hero: {
-      tagline: 'حيث تصنع الذكريات الجميلة',
+      tagline: 'مقهى محلي في جدة منذ 2014',
       title: 'مرحباً بكم في',
       cafeName: 'مقهى سارة',
-      description: 'قهوة مختصة وضيافة متكاملة صُممت لتعكس دفء المشاعر وأناقة التفاصيل، قكل فنجان نحضّره هو جزء من حكاية سارة.',
+      description: 'حيث تلتقي القيم التقليدية بالحداثة. طعام حقيقي مخبوز يومياً، قهوة مختصة، وأجواء هادئة ومشرقة.',
       cta: 'اكتشف قائمتنا',
     },
     categories: {
@@ -27,6 +28,23 @@ export const translations = {
     footer: {
       tagline: 'اكتشف طعم غني للقهوة.. واستمتع بلحظات مليئة بالدفء',
       copyright: 'مقهى سارة. جميع الحقوق محفوظة.',
+    },
+    seo: {
+      home: {
+        title: 'قائمة يدوية الصنع',
+        description: 'مقهى محلي في جدة منذ 2014. حيث تلتقي القيم التقليدية بالحداثة. طعام حقيقي مخبوز يومياً، قهوة مختصة، وأجواء هادئة ومشرقة. استكشف قائمتنا المتنوعة من القهوة والمشروبات والإفطار والحلويات.',
+        keywords: 'مقهى سارة, جدة, قهوة, مقهى للنساء, إفطار, برانش, طعام صحي, قهوة مختصة, البترجي, مقهى محلي',
+      },
+      about: {
+        title: 'من نحن',
+        description: 'تعرف على قصة مقهى سارة، مقهى محلي في جدة تأسس في 2014. يجمع بين الشرق والغرب مع الحفاظ على القيم التقليدية. مساحة مخصصة للنساء، طعام حقيقي، وقهوة مختصة.',
+        keywords: 'مقهى سارة, من نحن, جدة, مقهى للنساء, سارة محجوب, قيم, رسالة, رؤية',
+      },
+      contact: {
+        title: 'اتصل بنا',
+        description: 'تواصل مع مقهى سارة في جدة. العنوان: شارع البترجي. الهاتف: +966 564620992. ساعات العمل: كل أيام الأسبوع من 7:00 صباحاً إلى 11:00 مساءً.',
+        keywords: 'مقهى سارة, اتصل بنا, جدة, عنوان, هاتف, ساعات العمل, البترجي',
+      },
     },
     contact: {
       title: 'اتصل بنا',
@@ -126,13 +144,14 @@ export const translations = {
     nav: {
       menu: 'Menu',
       store: 'Store',
+      about: 'About',
       contact: 'Contact',
     },
     hero: {
-      tagline: 'Where beautiful memories are made',
+      tagline: 'A Local Cafe in Jeddah Since 2014',
       title: 'Welcome to',
       cafeName: 'Sara Café',
-      description: 'Specialty coffee and complete hospitality, thoughtfully designed to reflect warmth of emotions and elegance in every detail. Every cup we prepare is part of Sarah’s story.',
+      description: 'Where traditional values meet modernity. Real food baked daily, specialty coffee, and a calm, bright atmosphere.',
       cta: 'Explore Our Menu',
     },
     categories: {
@@ -150,6 +169,23 @@ export const translations = {
     footer: {
       tagline: 'Discover the rich taste of coffee… and enjoy moments filled with warmth.',
       copyright: '© Sara Café. All rights reserved.',
+    },
+    seo: {
+      home: {
+        title: 'Handcrafted Menu',
+        description: 'A local cafe in Jeddah since 2014. Where traditional values meet modernity. Real food baked daily, specialty coffee, and a calm, bright atmosphere. Explore our diverse menu of coffee, beverages, breakfast, and desserts.',
+        keywords: 'Sara Cafe, Jeddah, coffee, ladies cafe, breakfast, brunch, healthy food, specialty coffee, Al Batarji, local cafe',
+      },
+      about: {
+        title: 'About Us',
+        description: 'Learn about Sara Cafe, a local cafe in Jeddah established in 2014. Blending East and West while holding traditional values. A dedicated space for women, real food, and specialty coffee.',
+        keywords: 'Sara Cafe, about us, Jeddah, ladies cafe, Sara Mahjoub, values, mission, vision',
+      },
+      contact: {
+        title: 'Contact Us',
+        description: 'Contact Sara Cafe in Jeddah. Address: Al Batarji Street. Phone: +966 564620992. Opening Hours: Every day from 7:00 AM to 11:00 PM.',
+        keywords: 'Sara Cafe, contact us, Jeddah, address, phone, opening hours, Al Batarji',
+      },
     },
     contact: {
       title: 'Contact Us',
