@@ -63,7 +63,15 @@ const Contact = () => {
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in-up">
           <div className="mb-6">
-            <span className="inline-block text-sm md:text-base text-olive-green/80 font-light tracking-[0.2em] uppercase mb-4">
+            <span 
+              className={`inline-block text-sm md:text-base text-olive-green/80 font-light mb-4 ${
+                language === 'ar' ? 'tracking-normal' : 'tracking-[0.2em] uppercase'
+              }`}
+              style={{
+                fontFamily: language === 'ar' ? "'Alexandria', sans-serif" : "'Montserrat', sans-serif",
+                letterSpacing: language === 'ar' ? '0' : '0.2em'
+              }}
+            >
               {t.contact.subtitle}
             </span>
           </div>

@@ -31,7 +31,18 @@ const Hero = () => {
       {/* Content */}
       <div className={`relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
         <div className="mb-6">
-          <span className="inline-block text-sm md:text-base text-white font-light tracking-[0.2em] uppercase mb-4 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both', textShadow: '0 2px 8px rgba(0, 0, 0, 0.3)' }}>
+          <span 
+            className={`inline-block text-sm md:text-base text-white font-light mb-4 animate-fade-in ${
+              language === 'ar' ? 'tracking-normal' : 'tracking-[0.2em] uppercase'
+            }`}
+            style={{ 
+              animationDelay: '0.2s', 
+              animationFillMode: 'both', 
+              textShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+              fontFamily: language === 'ar' ? "'Alexandria', sans-serif" : "'Montserrat', sans-serif",
+              letterSpacing: language === 'ar' ? '0' : '0.2em'
+            }}
+          >
             {t.hero.tagline}
           </span>
         </div>

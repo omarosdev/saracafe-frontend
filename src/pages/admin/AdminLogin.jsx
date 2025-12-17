@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { adminTranslations } from '../../translations/adminTranslations';
 import { authAPI, isAuthenticated } from '../../services/api';
 
@@ -38,6 +38,20 @@ const AdminLogin = () => {
   return (
     <div dir="rtl" className="min-h-screen bg-gradient-to-br from-sand-beige via-white to-sand-beige/50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
+        {/* Back to Website Link */}
+        <div className="mb-4 text-center">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-warm-gray hover:text-olive-green transition-colors text-sm"
+            style={{ fontFamily: "'Alexandria', sans-serif" }}
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            العودة إلى الموقع
+          </Link>
+        </div>
+        
         <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-10 watercolor-shadow-lg">
           {/* Logo/Title Section */}
           <div className="text-center mb-8">

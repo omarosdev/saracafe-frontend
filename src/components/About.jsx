@@ -96,7 +96,15 @@ const About = () => {
         <div className="absolute inset-0 bg-sand-beige/40" />
         
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block text-sm md:text-base text-olive-green/80 font-light tracking-[0.2em] uppercase mb-4">
+          <span 
+            className={`inline-block text-sm md:text-base text-olive-green/80 font-light mb-4 ${
+              isArabic ? 'tracking-normal' : 'tracking-[0.2em] uppercase'
+            }`}
+            style={{
+              fontFamily: isArabic ? "'Alexandria', sans-serif" : "'Montserrat', sans-serif",
+              letterSpacing: isArabic ? '0' : '0.2em'
+            }}
+          >
             {t.hero.subtitle}
           </span>
           <h1
