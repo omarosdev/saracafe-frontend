@@ -105,6 +105,33 @@ const Navbar = () => {
                     {t.nav.menu}
                     <span className={`absolute bottom-0 right-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                   </Link>
+                  <Link
+                    to={getLocalizedPath('/home2', language)}
+                    className={`relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group ${
+                      currentPath === '/home2' || currentPath === '/menu2' ? 'text-olive-green' : ''
+                    }`}
+                  >
+                    {t.nav.home2}
+                    <span className={`absolute bottom-0 right-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/home2' || currentPath === '/menu2' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/home3', language)}
+                    className={`relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group ${
+                      currentPath === '/home3' || currentPath === '/menu3' ? 'text-olive-green' : ''
+                    }`}
+                  >
+                    {t.nav.home3}
+                    <span className={`absolute bottom-0 right-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/home3' || currentPath === '/menu3' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/home4', language)}
+                    className={`relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group ${
+                      currentPath === '/home4' || currentPath === '/menu4' ? 'text-olive-green' : ''
+                    }`}
+                  >
+                    {t.nav.home4}
+                    <span className={`absolute bottom-0 right-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/home4' || currentPath === '/menu4' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  </Link>
                   <a
                     href="#store"
                     className="relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group"
@@ -142,6 +169,33 @@ const Navbar = () => {
                   >
                     {t.nav.menu}
                     <span className={`absolute bottom-0 left-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/home2', language)}
+                    className={`relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group ${
+                      currentPath === '/home2' || currentPath === '/menu2' ? 'text-olive-green' : ''
+                    }`}
+                  >
+                    {t.nav.home2}
+                    <span className={`absolute bottom-0 left-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/home2' || currentPath === '/menu2' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/home3', language)}
+                    className={`relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group ${
+                      currentPath === '/home3' || currentPath === '/menu3' ? 'text-olive-green' : ''
+                    }`}
+                  >
+                    {t.nav.home3}
+                    <span className={`absolute bottom-0 left-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/home3' || currentPath === '/menu3' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/home4', language)}
+                    className={`relative text-warm-gray/90 hover:text-olive-green transition-colors duration-300 font-light text-sm tracking-wide uppercase group ${
+                      currentPath === '/home4' || currentPath === '/menu4' ? 'text-olive-green' : ''
+                    }`}
+                  >
+                    {t.nav.home4}
+                    <span className={`absolute bottom-0 left-0 h-px bg-olive-green transition-all duration-300 ${currentPath === '/home4' || currentPath === '/menu4' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                   </Link>
                   <a
                     href="#store"
@@ -274,6 +328,48 @@ const Navbar = () => {
                     </svg>
                     <span className="font-medium text-base">{t.nav.menu}</span>
                   </Link>
+                  <Link
+                    to={getLocalizedPath('/home2', language)}
+                    className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
+                      currentPath === '/home2' || currentPath === '/menu2'
+                        ? 'bg-olive-green/10 text-olive-green' 
+                        : 'text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span className="font-medium text-base">{t.nav.home2}</span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/home3', language)}
+                    className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
+                      currentPath === '/home3' || currentPath === '/menu3'
+                        ? 'bg-olive-green/10 text-olive-green' 
+                        : 'text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span className="font-medium text-base">{t.nav.home3}</span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/home4', language)}
+                    className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
+                      currentPath === '/home4' || currentPath === '/menu4'
+                        ? 'bg-olive-green/10 text-olive-green' 
+                        : 'text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span className="font-medium text-base">{t.nav.home4}</span>
+                  </Link>
                   <a
                     href="#store"
                     className="flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green group"
@@ -328,6 +424,48 @@ const Navbar = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                     <span className="font-medium text-base">{t.nav.menu}</span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/home2', language)}
+                    className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
+                      currentPath === '/home2' || currentPath === '/menu2'
+                        ? 'bg-olive-green/10 text-olive-green' 
+                        : 'text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span className="font-medium text-base">{t.nav.home2}</span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/home3', language)}
+                    className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
+                      currentPath === '/home3' || currentPath === '/menu3'
+                        ? 'bg-olive-green/10 text-olive-green' 
+                        : 'text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span className="font-medium text-base">{t.nav.home3}</span>
+                  </Link>
+                  <Link
+                    to={getLocalizedPath('/home4', language)}
+                    className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
+                      currentPath === '/home4' || currentPath === '/menu4'
+                        ? 'bg-olive-green/10 text-olive-green' 
+                        : 'text-warm-gray/90 hover:bg-sand-beige/50 hover:text-olive-green'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span className="font-medium text-base">{t.nav.home4}</span>
                   </Link>
                   <a
                     href="#store"

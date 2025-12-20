@@ -13,76 +13,41 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative h-[95vh] min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen min-h-[600px] md:min-h-[700px] overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${heroImage})`,
         }}
+      />
+
+      {/* Tagline and CTA - Bottom Left Corner */}
+      <div 
+        className={`absolute bottom-8 sm:bottom-12 md:bottom-16 lg:bottom-20 ${language === 'ar' ? 'right-6 sm:right-8 md:right-10 lg:right-12' : 'left-6 sm:left-8 md:left-10 lg:left-12'} z-20 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+        style={{ 
+          animationDelay: '0.4s', 
+          animationFillMode: 'both',
+          animationDuration: '0.8s'
+        }}
       >
-        {/* Fallback gradient if image doesn't exist */}
-        <div className="absolute inset-0 bg-gradient-to-br from-olive-green/35 via-natural-wood/25 to-sand-beige/45" />
-      </div>
-
-      {/* Light Overlay for text readability */}
-      <div className="absolute inset-0 bg-sand-beige/20" />
-
-      {/* Content */}
-      <div className={`relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-        <div className="mb-6">
-          <span 
-            className={`inline-block text-sm md:text-base text-white font-light mb-4 animate-fade-in ${
-              language === 'ar' ? 'tracking-normal' : 'tracking-[0.2em] uppercase'
+        <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
+          {/* Tagline - Bold Text with Shadow */}
+          <p 
+            className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-bold ${
+              language === 'ar' ? 'tracking-normal' : 'tracking-wide'
             }`}
             style={{ 
-              animationDelay: '0.2s', 
-              animationFillMode: 'both', 
-              textShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+              textShadow: '0 2px 20px rgba(0, 0, 0, 0.6), 0 4px 30px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.5)',
               fontFamily: language === 'ar' ? "'Alexandria', sans-serif" : "'Montserrat', sans-serif",
-              letterSpacing: language === 'ar' ? '0' : '0.2em'
+              letterSpacing: language === 'ar' ? '0' : '0.05em',
+              lineHeight: '1.2'
             }}
           >
-            {t.hero.tagline}
-          </span>
-        </div>
-        
-        <h1 
-          className={`font-normal text-white mb-6 md:mb-8 leading-tight md:whitespace-nowrap relative ${
-            language === 'ar' 
-              ? 'text-4xl md:text-5xl lg:text-6xl xl:text-7xl' 
-              : 'text-5xl md:text-6xl lg:text-7xl xl:text-8xl'
-          }`}
-          style={{ 
-            fontFamily: language === 'ar' 
-              ? "'Zain', serif" 
-              : "'Playfair Display', serif",
-            fontWeight: language === 'ar' ? 700 : 500,
-            letterSpacing: language === 'ar' ? '0' : '-0.03em',
-            textShadow: '0 2px 12px rgba(0, 0, 0, 0.4), 0 4px 24px rgba(0, 0, 0, 0.3)'
-          }}
-        >
-          <span className="inline-block">{t.hero.title}</span>
-          <span 
-            className="inline-block italic text-white"
-            style={{
-              fontFamily: language === 'ar' ? "'Zain', serif" : "'Playfair Display', serif",
-              fontWeight: language === 'ar' ? 600 : 400,
-              fontSize: language === 'ar' ? '0.92em' : '0.88em',
-              fontStyle: 'italic',
-              marginLeft: language === 'ar' ? '0' : '0.75rem',
-              marginRight: language === 'ar' ? '0.75rem' : '0'
-            }}
-          >
-            {t.hero.cafeName}
-          </span>
-        </h1>
-        
-        <p className="text-lg md:text-xl lg:text-2xl text-white mb-12 font-light leading-relaxed max-w-3xl mx-auto text-balance px-4 mt-0" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.3)' }}>
-          {t.hero.description}
-        </p>
-        
-        <div className="flex justify-center gap-4">
+            {t.hero.slogan}
+          </p>
+          
+          {/* CTA Button */}
           <a
             href="#menu"
             onClick={(e) => {
@@ -92,16 +57,32 @@ const Hero = () => {
                 menuSection.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="px-10 py-4 bg-olive-green text-sand-beige rounded-full font-medium hover:bg-olive-green/95 transition-all duration-300 shadow-md hover:shadow-lg text-base tracking-wide"
+            className="inline-block px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-olive-green text-sand-beige rounded-full font-semibold hover:bg-olive-green/90 transition-all duration-300 shadow-xl hover:shadow-2xl text-sm sm:text-base md:text-lg tracking-wide hover:scale-105 active:scale-95 w-fit"
+            style={{
+              fontFamily: language === 'ar' ? "'Alexandria', sans-serif" : "'Montserrat', sans-serif",
+              textShadow: 'none',
+              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2)'
+            }}
           >
             {t.hero.cta}
           </a>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-70">
-        <svg className="w-5 h-5 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+      {/* Scroll Indicator - Bottom Center */}
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10 opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <svg 
+          className="w-5 h-5 sm:w-6 sm:h-6 text-white animate-bounce" 
+          fill="none" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth="2" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor"
+          style={{
+            filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4))'
+          }}
+        >
           <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
         </svg>
       </div>

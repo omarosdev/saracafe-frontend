@@ -4,6 +4,9 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import Home from './pages/Home';
+import Home2 from './pages/Home2';
+import Home3 from './pages/Home3';
+import Home4 from './pages/Home4';
 import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
 import AdminLogin from './pages/admin/AdminLogin';
@@ -56,6 +59,12 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/home2" element={<Home2 />} />
+              <Route path="/menu2" element={<Home2 />} />
+              <Route path="/home3" element={<Home3 />} />
+              <Route path="/menu3" element={<Home3 />} />
+              <Route path="/home4" element={<Home4 />} />
+              <Route path="/menu4" element={<Home4 />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/about" element={<AboutPage />} />
               {/* Redirect /en to /en/ */}
@@ -77,6 +86,12 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/home2" element={<Home2 />} />
+              <Route path="/menu2" element={<Home2 />} />
+              <Route path="/home3" element={<Home3 />} />
+              <Route path="/menu3" element={<Home3 />} />
+              <Route path="/home4" element={<Home4 />} />
+              <Route path="/menu4" element={<Home4 />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="*" element={<Navigate to="/en" replace />} />

@@ -2,15 +2,16 @@ export const translations = {
   ar: {
     nav: {
       menu: 'القائمة',
+      home2: 'القائمة 2',
+      home3: 'القائمة 3',
+      home4: 'القائمة 4',
       store: 'المتجر',
       about: 'من نحن',
       contact: 'اتصل بنا',
     },
     hero: {
-      tagline: 'مقهى محلي في جدة منذ 2014',
-      title: 'مرحباً بكم في',
-      cafeName: 'مقهى سارة',
-      description: 'حيث تلتقي القيم التقليدية بالحداثة. طعام طازج مخبوز يومياً، قهوة مختصة، وأجواء هادئة ومشرقة.',
+      tagline: 'It\'s personal here',
+      slogan: 'It\'s personal here',
       cta: 'اكتشف قائمتنا',
     },
     categories: {
@@ -143,15 +144,16 @@ export const translations = {
   en: {
     nav: {
       menu: 'Menu',
+      home2: 'Menu 2',
+      home3: 'Menu 3',
+      home4: 'Menu 4',
       store: 'Store',
       about: 'About',
       contact: 'Contact',
     },
     hero: {
-      tagline: 'A Local Cafe in Jeddah Since 2014',
-      title: 'Welcome to',
-      cafeName: 'Sara Café',
-      description: 'Where traditional values meet modernity. Fresh food baked daily, specialty coffee, and a calm, bright atmosphere.',
+      tagline: 'It\'s personal here',
+      slogan: 'It\'s personal here',
       cta: 'Explore Our Menu',
     },
     categories: {
